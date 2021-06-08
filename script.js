@@ -24,10 +24,12 @@ function run(input = einput.value){
         output += String.fromCharCode(cells[ptr]);
         break;
       case "+":
-        cells[ptr] += 1;
+        if(cells[ptr] < 255) cells[ptr] += 1;
+        else cells[ptr] = 0;
         break;
       case "-":
-        cells[ptr] -= 1;
+        if(cells[ptr] > 0) cells[ptr] -= 1;
+        else cells[ptr] = 255;
         break;
       case ",":
         const pinput = prompt("Enter Input Here","0");
