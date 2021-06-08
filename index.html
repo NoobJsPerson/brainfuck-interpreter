@@ -9,10 +9,22 @@
   <title>BrainFuck Interpreter</title>
 </head>
 <body>
+  <table>
+    <tr id="cellsholder">
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+      <th>0</th>
+    </tr>
+  </table>
 <label for="input">Code</label>
 <textarea id="input" cols="30" rows="20"></textarea>
-<input type="checkbox" id="isASCII"><label for="isASCII">Get input as ASCII code</label>
-<button onclick="run()">Run</button>
+<input type="checkbox" id="isASCII"><label for="isASCII">Get input as ASCII</label>
+<button onclick="interpretate()">Run</button>
 <label for="output">Output</label>
 <textarea id="output" cols="30" rows="5"></textarea>
 </body>
