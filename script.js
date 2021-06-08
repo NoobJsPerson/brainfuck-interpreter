@@ -1,18 +1,26 @@
+function wait(n){
+    return new Promise(function(resolve){
+        setTimeout(resolve,n);
+    });
+}
 const einput = document.getElementById("input"),
-      isASCII = document.getElementById("isASCII").checked;
- let output = "",
+      isASCII = document.getElementById("isASCII").checked,
+      tr = document.getElementById("cellsholder");
+function interpretate(){
+  let output = "",
       cells = [],
       ptr = 0;
-function run(input = einput.value){
+  for(let child of tr.children) child.innerHTML = "0";
+  async function run(input = einput.value){
   let index = -1,
       continuumAmount = 0;
   for(let char of input){
+    if(!cells[ptr]) cells[ptr] = 0;
     index++
     if(continuumAmount > 0){
       continuumAmount--;
       continue;
     }
-    if(!cells[ptr]) cells[ptr] = 0;
     switch(char){
       case ">":
         ptr++;
@@ -43,6 +51,14 @@ function run(input = einput.value){
         }
         break;
     }
+      while(!tr.children[ptr]){
+        const th = document.createElement("th");
+        tr.appendChild(th);
+      }
+      tr.children[ptr].innerHTML = cells[ptr] || 0;
+      await wait(2)
   }
-  document.getElementById("output").value = output
+  document.getElementById("output").value = output;
+  }
+  run();
 }
