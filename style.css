@@ -1,0 +1,6 @@
+button, textarea {
+  display: block;
+}
+button {
+  margin-left: 60%;
+}
