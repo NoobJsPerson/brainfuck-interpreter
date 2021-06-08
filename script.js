@@ -7,12 +7,12 @@ function run(input = einput.value){
   let index = -1,
       continuumAmount = 0;
   for(let char of input){
-    if(!cells[ptr]) cells[ptr] = 0;
     index++
     if(continuumAmount > 0){
       continuumAmount--;
       continue;
     }
+    if(!cells[ptr]) cells[ptr] = 0;
     switch(char){
       case ">":
         ptr++;
