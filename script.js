@@ -11,7 +11,7 @@ function interpretate(){
       cells = [],
       ptr = 0;
   for(let child of tr.children) child.innerHTML = "0";
-  async function run(input = einput.value){
+  (async function run(input = einput.value){
   let index = -1,
       continuumAmount = 0;
   for(let char of input){
@@ -59,6 +59,5 @@ function interpretate(){
       await wait(2)
   }
   document.getElementById("output").value = output;
-  }
-  run();
+  })();
 }
